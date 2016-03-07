@@ -1,0 +1,39 @@
+/*-------------------------------------//
+//  Btn
+//-------------------------------------*/
+
+.c-btn {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+
+    &.is-disabled {
+        opacity: .4;
+        border: 1px solid $off-color;
+        background-color: #F7F8F9;
+        color: $base-font-color;
+        cursor: default;
+    }
+}
+.c-btn--middle {
+    padding: 0 20px;
+    font-size: $font-size-s;
+    line-height: 28px;
+}
+.c-btn--large {
+    padding: 0 40px;
+    font-size: $font-size-xl + 2;
+    line-height: 40px;
+}
+.c-btn--default {
+    background-color: $base-site-color;
+    color: $light-font-color;
+}
+.c-btn--off {
+    background-color: $off-color;
+    color: $base-font-color;
+}
+.c-btn--alert {
+    background-color: $alert-color;
+    color: $light-font-color;
+}

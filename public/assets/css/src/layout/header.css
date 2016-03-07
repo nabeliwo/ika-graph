@@ -1,0 +1,38 @@
+/*-------------------------------------//
+//  Header
+//-------------------------------------*/
+
+#header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: url('/assets/img/common/header-bg.jpg') center center;
+    background-size: cover;
+    color: $light-font-color;
+}
+.header__title { font-size: $font-size-l; }
+.header__user {
+    z-index: 10;
+    position: relative;
+}
+.header__user__name {
+    position: relative;
+    padding-right: 16px;
+    cursor: pointer;
+
+    &:after {
+        position: absolute;
+        top: 4px;
+        right: 0;
+        font-size: $font-size-xs;
+        content: "▼";
+    }
+}
+.header__menu {
+    position: absolute;
+    top: 29px;
+    right: -10px;
+}

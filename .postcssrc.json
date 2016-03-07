@@ -1,0 +1,14 @@
+{
+  "use": [
+    "postcss-import",
+    "postcss-simple-vars",
+    "postcss-nested",
+    "autoprefixer",
+    "cssnano"
+  ],
+  "input": "./public/assets/css/src/app.css",
+  "output": "./public/assets/css/bundle.css",
+  "autoprefixer": {
+    "browsers": "last 2 versions"
+  }
+}

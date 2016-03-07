@@ -18,11 +18,8 @@ build
 config/
 
 # dist
-app.css
-_mixin_sprite.scss
+bundle.css
 bundle.js
-bundle/
-sprite.png
 
 node_modules
 .DS_Store
