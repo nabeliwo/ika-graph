@@ -1,14 +1,14 @@
 {
   "name": "ika-graph",
   "version": "1.0.0",
-  "description": "",
+  "description": "ナベとサクモトでやってるイカ実況の戦績を可視化するツール",
   "main": "index.js",
   "scripts": {
     "build-js": "browserify public/assets/js/app/app.js -t babelify -t uglifyify -o public/assets/js/bundle.js",
     "watch-js": "watchify --debug public/assets/js/app/app.js -t babelify -o public/assets/js/bundle.js -v"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "nabeliwo",
+  "license": "MIT",
   "dependencies": {
     "flumpt": "^0.1.4",
     "react": "^0.14.7",
