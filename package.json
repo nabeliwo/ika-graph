@@ -10,7 +10,8 @@
     "build-css": "postcss -c ./.postcssrc.json",
     "watch-css": "postcss -c ./.postcssrc.json -w --map",
     "build-js": "browserify public/assets/js/app/app.js -t babelify -t uglifyify -o public/assets/js/bundle.js",
-    "watch-js": "watchify --debug public/assets/js/app/app.js -t babelify -o public/assets/js/bundle.js -v"
+    "watch-js": "watchify --debug public/assets/js/app/app.js -t babelify -o public/assets/js/bundle.js -v",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,14 @@
   },
   "homepage": "https://github.com/nabeliwo/ika-graph#readme",
   "dependencies": {
+    "config": "^1.19.0",
     "flumpt": "^0.1.4",
+    "handlebars": "^4.0.5",
+    "hapi": "^13.2.1",
+    "inert": "^3.2.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "vision": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
