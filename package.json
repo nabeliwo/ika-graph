@@ -9,8 +9,8 @@
   "scripts": {
     "build-css": "postcss -c ./.postcssrc.json",
     "watch-css": "postcss -c ./.postcssrc.json -w --map",
-    "build-js": "browserify public/assets/js/app/app.js -t babelify -t uglifyify -o public/assets/js/bundle.js",
-    "watch-js": "watchify --debug public/assets/js/app/app.js -t babelify -o public/assets/js/bundle.js -v",
+    "build-js": "browserify --extension=jsx public/assets/js/app/app.jsx -t babelify -t uglifyify -o public/assets/js/bundle.js",
+    "watch-js": "watchify --debug --extension=jsx public/assets/js/app/app.jsx -t babelify -o public/assets/js/bundle.js -v",
     "start": "node index.js"
   },
   "repository": {
