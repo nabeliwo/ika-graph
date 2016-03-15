@@ -15,6 +15,11 @@
 .u-fl { float: left; }
 .u-fr { float: right; }
 
+.u-fulimg {
+    width: 100%;
+    height: auto;
+}
+
 
 /*  Ellipsis
 //-------------------------------------*/

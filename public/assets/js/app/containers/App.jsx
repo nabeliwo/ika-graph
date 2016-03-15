@@ -1,5 +1,7 @@
-import * as React from "react";
-import { Flux } from "flumpt";
+import * as React from 'react';
+import { Flux } from 'flumpt';
+
+import Header from '../components/Header';
 
 export default class App extends Flux {
   subscribe() {
@@ -11,6 +13,10 @@ export default class App extends Flux {
   }
 
   render(state: {}) {
-    return <div>{state.memo}</div>;
+    return (
+      <div>
+        <Header />
+      </div>
+    );
   }
 }

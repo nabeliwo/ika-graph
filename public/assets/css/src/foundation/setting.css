@@ -5,22 +5,16 @@
 /*  Base
 //-------------------------------------*/
 
-$base-background-color: #f9f9f9;
+$base-background-color: #fff;
 $base-site-color: #2244aa;
-$base-font-color: #3a3a3a;
+$base-font-color: #272727;
 $base-font-size: 16px;
 
 
 /*  Other
 //-------------------------------------*/
 
-$light-font-color: #fff;
-$other-font-color: #aaa;
-$off-color: #ddd;
-$alert-color: #E0716D;
-$disabled-color: #F7F8F9;
 
-$txt-link-color: #6cc6e4;
 
 
 /*  Font
