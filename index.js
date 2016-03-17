@@ -3,6 +3,7 @@ const config = require('config');
 const vision = require('vision');
 const handlebars = require('handlebars');
 const inert = require('inert');
+const mysql = require('mysql');
 
 const server = new Hapi.Server();
 
@@ -34,6 +35,19 @@ function normalizePort(val) {
 }
 
 /**
+ * Connect the db.
+ */
+const dbConfig = config.get('db');
+const connection = mysql.createConnection({
+  host: dbConfig.host,
+  user: dbConfig.user,
+  password: dbConfig.pass,
+  database: dbConfig.db
+});
+
+connection.connect();
+
+/**
  * Template engine.
  */
 server.register(vision, err => {
@@ -63,6 +77,9 @@ server.register(inert, err => {
  * Routing.
  */
 const routings = [
+  ...require('./app/api/v1/passwords')(connection),
+  ...require('./app/api/v1/stages')(connection),
+  ...require('./app/api/v1/bukis')(connection),
   ...require('./app/routes')()
 ];
 

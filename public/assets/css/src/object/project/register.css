@@ -1,0 +1,102 @@
+/*-------------------------------------//
+//  Register
+//-------------------------------------*/
+
+.p-register { padding: 30px 0; }
+
+.p-register__login {
+    text-align: center;
+}
+.p-register__login__form {
+    display: inline-block;
+    padding-left: 5px;
+}
+.p-register__login__form__input {
+    padding: 10px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #DEDEDE;
+    border-right: none;
+    font-size: $font-size-s;
+}
+.p-register__login__form__submit {
+    padding: 9px 9px 8px;
+    border-radius: 0 4px 4px 0;
+    background-color: $base-site-color;
+    color: #FFF;
+    font-size: $font-size-s;
+    cursor: pointer;
+}
+
+.p-register__form {
+    width: 100%;
+    border: 1px solid #DEDEDE;
+    table-layout: fixed;
+
+    & > tbody > tr {
+        &:not(:first-child) { border-top: 1px solid #DEDEDE; }
+
+        & > th {
+            width: 200px;
+            padding: 10px;
+            border-right: 1px solid #DEDEDE;
+            background-color: $base-site-color;
+            color: #FFF;
+            font-size: $font-size-ll;
+            line-height: 30px;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
+        & > td {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            vertical-align: middle;
+
+            &.p-register__form__name {
+                width: 100px;
+                border-right: 1px solid #DEDEDE;
+            }
+            &.p-register__form__kill { white-space: nowrap; }
+        }
+    }
+}
+.p-register__form__input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #DEDEDE;
+    font-size: $font-size-s;
+}
+.p-register__form__btn {
+    margin-left: 10px;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-size: $font-size-s;
+    vertical-align: 2px;
+}
+.p-register__form__dayPicker {
+    z-index: 1;
+    position: absolute;
+    top: -100px;
+    left: 220px;
+    display: none;
+    width: 279px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background-color: #FFF;
+
+    &.is-active { display: block; }
+}
+.p-register__form__box { margin: -30px; }
+.p-register__form__box__cell {
+    display: inline-block;
+    margin-right: 30px;
+    padding: 5px 0;
+}
+.p-register__form__box__cell__select {
+    display: inline-block;
+    vertical-align: middle;
+}
+.p-register__submit {
+    
+}

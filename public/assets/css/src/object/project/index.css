@@ -2,3 +2,11 @@
 //  Index
 //-------------------------------------*/
 
+.p-index {
+    font-size: 30px;
+    text-align: center;
+    line-height: 2;
+}
+.p-index__large { font-size: 50px; }
+.p-index__nabe { color: #151EE6; }
+.p-index__saku { color: #DA008D; }

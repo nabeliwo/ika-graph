@@ -1,0 +1,14 @@
+/*-------------------------------------//
+//  Input
+//-------------------------------------*/
+
+.c-input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #DEDEDE;
+    font-size: $font-size-s;
+
+    &.is-small { width: 50px; }
+    &.is-middle { width: 100px; }
+    &.is-large { width: 200px; }
+}

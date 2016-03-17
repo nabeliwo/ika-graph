@@ -44,3 +44,8 @@ input, button, textarea {
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #eee inset;
 }
+
+@font-face {
+    font-family: 'ikamodoki';
+    src: url('/assets/css/font/ikamodoki1_0.ttf') format('truetype');
+}

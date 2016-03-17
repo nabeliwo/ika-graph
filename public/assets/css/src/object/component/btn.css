@@ -1,3 +1,20 @@
 /*-------------------------------------//
 //  Btn
 //-------------------------------------*/
+
+.c-btn {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+
+    &:active { transform: scale(1.1); }
+}
+.c-btn--default {
+    background-color: $base-site-color;
+    color: #FFF;
+}
+.c-btn--middle {
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: $font-size-ll;
+}

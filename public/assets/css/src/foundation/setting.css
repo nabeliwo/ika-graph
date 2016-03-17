@@ -20,10 +20,10 @@ $base-font-size: 16px;
 /*  Font
 //-------------------------------------*/
 
-$font-size-xl: $base-font-size + 6;
-$font-size-ll: $base-font-size + 4;
-$font-size-l: $base-font-size + 2;
+$font-size-xl: calc($base-font-size + 6);
+$font-size-ll: calc($base-font-size + 4);
+$font-size-l: calc($base-font-size + 2);
 $font-size-m: $base-font-size;
-$font-size-s: $base-font-size - 2;
-$font-size-ss: $base-font-size - 4;
-$font-size-xs: $base-font-size - 6;
+$font-size-s: calc($base-font-size - 2);
+$font-size-ss: calc($base-font-size - 4);
+$font-size-xs: calc($base-font-size - 6);

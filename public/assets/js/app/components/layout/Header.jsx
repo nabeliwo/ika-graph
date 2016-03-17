@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Component } from "flumpt";
+import * as React from 'react';
+import { Component } from 'flumpt';
 
 export default class Header extends Component {
   render() {

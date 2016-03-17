@@ -47,24 +47,18 @@
 
 /*.u-dn { display: none !important;  }
 .u-db { display: block !important;  }
-.u-di { display: inline !important;  }
-.u-dib { display: inline-block !important;  }
-.u-dt { display: table !important; }
-.u-dc { display: table-cell !important;}*/
+.u-di { display: inline !important;  }*/
+.u-dib { display: inline-block !important; }
+/*.u-dt { display: table !important; }
+.u-dc { display: table-cell !important; }*/
 
 
 /*  Spacing Classes
 //-------------------------------------*/
 
-/*.u-mgn { margin: 0 !important; }
-
-.u-mb2 { margin-bottom: 2px !important; }
-.u-mb7 { margin-bottom: 7px !important; }
-.u-mb10 { margin-bottom: 10px !important; }
-.u-mb15 { margin-bottom: 15px !important; }
+.u-mr5 { margin-right: 5px !important; }
+.u-mr10 { margin-right: 10px !important; }
 .u-mb20 { margin-bottom: 20px !important; }
-
-.u-mr2 { margin-right: 2px !important; }*/
 
 
 /*  Text Decorative Classes
@@ -81,9 +75,9 @@
 /*.u-n { font-weight: normal !important; }
 .u-b { font-weight: bold !important; }
 .u-i { font-style: italic !important; }
-.u-l { text-align: left !important; }
+.u-l { text-align: left !important; }*/
 .u-c { text-align: center !important; }
-.u-r { text-align: right !important; }
+/*.u-r { text-align: right !important; }
 .u-u { text-decoration: underline !important; }
 
 .u-v0 { vertical-align: 0; }
