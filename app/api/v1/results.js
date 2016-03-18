@@ -5,15 +5,23 @@ module.exports = connection => [
     path: path,
     method: 'GET',
     handler: (request, reply) => {
+      Promise.all([
+        fetchBattles(connection),
+        fetchKillRatios(connection),
+        fetchPlayers(connection),
+      ])
+      .then(res => {
+        const state = {
+          battles: res[0],
+          killRatios: res[1],
+          players: res[2]
+        };
 
-      // connection.query('SELECT buki_id, buki_name, thumbnail FROM bukis', (err, rows) => {
-      //   if (err) {
-      //     throw err;
-      //   }
-      //
-      //   return reply(rows);
-      // });
-      return reply([]);
+        reply(state);
+      })
+      .catch(res => {
+        reply(res);
+      });
     }
   },
   {
@@ -42,7 +50,20 @@ module.exports = connection => [
         ]);
       })
       .then(res => {
-        console.log(res);
+        return Promise.all([
+          fetchBattles(connection),
+          fetchKillRatios(connection),
+          fetchPlayers(connection),
+        ])
+        .then(res => {
+          const state = {
+            battles: res[0],
+            killRatios: res[1],
+            players: res[2]
+          };
+
+          reply(state);
+        })
       })
       .catch(res => {
         reply(res);
@@ -50,6 +71,48 @@ module.exports = connection => [
     }
   }
 ];
+
+function fetchBattles(connection) {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT battle_id, result, stage_id, rule_id, record, current_udemae, change_num, battled_at FROM battles';
+
+    connection.query(query, (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(rows);
+    });
+  });
+}
+
+function fetchKillRatios(connection) {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT battle_id, user_id, kill_num, death_num FROM kill_ratios';
+
+    connection.query(query, (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(rows);
+    });
+  });
+}
+
+function fetchPlayers(connection) {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT battle_id, type, buki_id, udemae FROM players';
+
+    connection.query(query, (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(rows);
+    });
+  });
+}
 
 function postBattle(payload, connection) {
   return new Promise((resolve, reject) => {

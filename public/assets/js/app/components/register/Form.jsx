@@ -10,8 +10,22 @@ export default class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  renderRequest() {
+    const { request } = this.props;
+
+    if (!request.sending && request.status) {
+      return <p className="p-register__result is-success">登録しました</p>;
+    } else if (!request.sending && request.status === false) {
+      return <p className="p-register__result is-fail">登録に失敗しました</p>
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+
+    if (this.props.request.sending) {
+      return;
+    }
 
     const elements = e.target.elements;
     const formData = {
@@ -73,10 +87,12 @@ export default class Form extends Component {
   }
 
   render() {
-    const { stages, rules, bukis } = this.props;
+    const { stages, rules, bukis, request } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
+        {this.renderRequest()}
+
         <table className="p-register__form u-mb20">
           <tbody>
             <tr>
@@ -197,7 +213,7 @@ export default class Form extends Component {
         </table>
 
         <div className="u-c">
-          <input className="c-title--ika c-btn c-btn--default c-btn--middle" type="submit" value="ソウシン" />
+          <input className={`c-title--ika c-btn c-btn--default c-btn--middle ${request.sending && 'is-disabled'}`} type="submit" value="ソウシン" disabled={request.sending && 'true'} />
         </div>
       </form>
     );

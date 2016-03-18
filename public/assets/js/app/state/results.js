@@ -11,7 +11,7 @@ const results = {
         responseType: 'json'
       })
       .then(res => {
-        const state = res.data;
+        const state = concatBattleData(res.data);
 
         resolve(state);
       })
@@ -30,16 +30,31 @@ const results = {
         data: formData
       })
       .then(res => {
-        console.log(res);
+        const state = concatBattleData(res.data);
 
-        // resolve();
+        resolve(state);
       })
       .catch(err => {
-        console.log(err);
-        // reject();
+        reject(err);
       });
     });
   }
 };
+
+function concatBattleData(data) {
+  const { battles, killRatios, players } = data;
+
+  return battles.map(battle => {
+    battle.killRatios = {};
+    battle.killRatios.nabe = killRatios.filter(killRatio => killRatio.battle_id === battle.battle_id && killRatio.user_id === 1)[0];
+    battle.killRatios.saku = killRatios.filter(killRatio => killRatio.battle_id === battle.battle_id && killRatio.user_id === 2)[0];
+
+    battle.players = {};
+    battle.players.ally = players.filter(player => player.battle_id === battle.battle_id && player.type === 0);
+    battle.players.enemy = players.filter(player => player.battle_id === battle.battle_id && player.type === 1);
+
+    return battle;
+  });
+}
 
 export default results;

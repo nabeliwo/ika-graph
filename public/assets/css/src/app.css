@@ -42,6 +42,7 @@
 
 @import "./object/project/index";
 @import "./object/project/register";
+@import "./object/project/result";
 
 
 /*----------------------------------------------

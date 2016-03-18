@@ -22,6 +22,10 @@ export default class App extends Flux {
           pages: {
             current: page.current,
             list: state.pages.list
+          },
+          request: {
+            sending: state.request.sending,
+            status: null
           }
         });
       });
@@ -41,16 +45,43 @@ export default class App extends Flux {
     });
 
     this.on('registerResults', formData => {
+      this.update(state => {
+        return Object.assign({}, state, {
+          request: {
+            sending: true,
+            status: null
+          }
+        });
+      });
+
       results.post(formData)
       .then(res => {
-        console.log(res);
-        this.update(state => state);
+        this.update(state => {
+          return Object.assign({}, state, {
+            results: res,
+            request: {
+              sending: false,
+              status: true
+            }
+          });
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        this.update(state => {
+          return Object.assign({}, state, {
+            request: {
+              sending: false,
+              status: false
+            }
+          });
+        });
       });
     });
   }
 
   renderPage(state) {
-    const { pages, stages, rules, bukis, register } = state;
+    const { pages, results, stages, rules, bukis, register, request } = state;
 
     switch (pages.current) {
       case '/':
@@ -58,11 +89,11 @@ export default class App extends Flux {
         break;
 
       case '/result/':
-        return <Result />;
+        return <Result results={results} stages={stages} rules={rules} bukis={bukis} />;
         break;
 
       case '/kill_ratio/':
-        return <KillRatio />;
+        return <KillRatio killRatios={results.map(result => result.killRatios)} />;
         break;
 
       case '/win_per/':
@@ -74,7 +105,7 @@ export default class App extends Flux {
         break;
 
       case '/register/':
-        return <Register stages={stages} rules={rules} bukis={bukis} register={register} />;
+        return <Register stages={stages} rules={rules} bukis={bukis} register={register} request={request} />;
         break;
     }
   }

@@ -16,12 +16,16 @@ const app = new App({
   },
 
   initialState: {
-    pages: {},
+    pages: pages,
     register: {},
     stages: [],
     rules: [],
     bukis: [],
-    results: []
+    results: [],
+    request: {
+      sending: false,
+      status: null
+    }
   },
 
   middlewares: [
@@ -44,7 +48,6 @@ Promise.all([
 ])
 .then(res => {
   app.update(state => Object.assign({}, state, {
-    pages: pages,
     register: res[0],
     stages: res[1],
     rules: res[2],

@@ -8,6 +8,11 @@
     cursor: pointer;
 
     &:active { transform: scale(1.1); }
+
+    &.is-disabled {
+        background-color: #E0E1E2;
+        cursor: default;
+    }
 }
 .c-btn--default {
     background-color: $base-site-color;

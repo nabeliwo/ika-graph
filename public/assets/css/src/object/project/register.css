@@ -27,6 +27,14 @@
     cursor: pointer;
 }
 
+.p-register__result {
+    margin-bottom: 20px;
+    font-size: $font-size-xl;
+    text-align: center;
+
+    &.is-success { color: $base-site-color; }
+    &.is-fail { color: $error-color; }
+}
 .p-register__form {
     width: 100%;
     border: 1px solid #DEDEDE;

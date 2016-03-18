@@ -1,0 +1,64 @@
+/*-------------------------------------//
+//  Result
+//-------------------------------------*/
+
+.p-result {
+    min-width: 950px;
+    padding: 0 20px;
+}
+.p-result__table {
+    width: 100%;
+    border: 1px solid #dedede;
+
+    & > thead > tr {
+        &:nth-child(2) { border-top: 1px solid #dedede; }
+
+        & > th {
+            padding: 10px;
+            background-color: $base-site-color;
+            color: #FFF;
+            font-size: $font-size-ll;
+            line-height: 26px;
+            vertical-align: middle;
+
+            &:not(:first-child) { border-left: 1px solid #dedede; }
+        }
+    }
+
+    & > tbody > tr {
+        border-top: 1px solid #dedede;
+
+        &:nth-child(even) { background-color: #eee; }
+
+        & > td {
+            padding: 5px;
+            line-height: 22px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+
+            &:not(:first-child) { border-left: 1px solid #dedede; }
+
+            &.p-result__table__flex { padding: 0; }
+            &.is-win,
+            &.is-lose {
+                color: #fff;
+                font-size: 60px;
+                font-weight: bold;
+            }
+            &.is-win { background-color: #00B5AD; }
+            &.is-lose { background-color: $error-color; }
+        }
+    }
+}
+.p-result__table__flex__inner {
+    display: flex;
+    flex-direction: column;
+
+    & > .p-result__table__flex__cell {
+        padding: 5px;
+
+        &:not(:first-child) { border-top: 1px solid #dedede; }
+    }
+}
+
