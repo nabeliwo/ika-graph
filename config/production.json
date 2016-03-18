@@ -1,0 +1,12 @@
+{
+  "host": "production",
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "pass": "HiroNiko2012",
+    "db": "ika-graph"
+  },
+  "register": {
+    "pass": "HiroNiko2012"
+  }
+}
