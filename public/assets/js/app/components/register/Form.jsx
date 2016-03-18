@@ -15,52 +15,53 @@ export default class Form extends Component {
 
     const elements = e.target.elements;
     const formData = {
-      date: elements[0].dataset.date,
+      date: elements[0].value,
       result: elements[1].value,
       stageId: elements[2].value,
-      record: elements[3].value.trim(),
+      ruleId: elements[3].value,
+      record: elements[4].value.trim(),
       killDeath: {
         nabe: {
-          kill: elements[4].value.trim(),
-          death: elements[5].value.trim()
+          kill: elements[5].value.trim(),
+          death: elements[6].value.trim()
         },
         saku: {
-          kill: elements[6].value.trim(),
-          death: elements[7].value.trim()
+          kill: elements[7].value.trim(),
+          death: elements[8].value.trim()
         }
       },
       player: {
         ally: [
           {
-            buki_id: elements[8].value,
-            udemae: elements[9].value
+            bukiId: elements[9].value,
+            udemae: elements[10].value
           },
           {
-            buki_id: elements[10].value,
-            udemae: elements[11].value
+            bukiId: elements[11].value,
+            udemae: elements[12].value
           }
         ],
         enemy: [
           {
-            buki_id: elements[12].value,
-            udemae: elements[13].value
+            bukiId: elements[13].value,
+            udemae: elements[14].value
           },
           {
-            buki_id: elements[14].value,
-            udemae: elements[15].value
+            bukiId: elements[15].value,
+            udemae: elements[16].value
           },
           {
-            buki_id: elements[16].value,
-            udemae: elements[17].value
+            bukiId: elements[17].value,
+            udemae: elements[18].value
           },
           {
-            buki_id: elements[18].value,
-            udemae: elements[19].value
+            bukiId: elements[19].value,
+            udemae: elements[20].value
           }
         ]
       },
-      changeNum: elements[20].value.trim(),
-      currentUdemae: elements[21].value.trim()
+      changeNum: elements[21].value.trim(),
+      currentUdemae: elements[22].value.trim()
     };
 
     if (formData.date === '') {
@@ -72,7 +73,7 @@ export default class Form extends Component {
   }
 
   render() {
-    const { stage, buki } = this.props;
+    const { stages, rules, bukis } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -88,8 +89,8 @@ export default class Form extends Component {
               <th className="c-title--ika">ショウハイ</th>
               <td>
                 <select>
-                  <option value="true">○</option>
-                  <option value="false">●</option>
+                  <option value="1">○</option>
+                  <option value="0">●</option>
                 </select>
               </td>
             </tr>
@@ -97,8 +98,18 @@ export default class Form extends Component {
               <th className="c-title--ika">ステージ</th>
               <td>
                 <select>
-                  {stage.map((item, i) =>
+                  {stages.map((item, i) =>
                     <option key={i} value={item.stage_id}>{item.stage_name}</option>
+                  )}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th className="c-title--ika">ルール</th>
+              <td>
+                <select>
+                  {rules.map((item, i) =>
+                    <option key={i} value={item.rule_id}>{item.rule_name}</option>
                   )}
                 </select>
               </td>
@@ -114,10 +125,10 @@ export default class Form extends Component {
               <td>
                 <div className="u-dib u-mr10">ナベ =></div>
                 <div className="u-dib u-mr10">
-                  キル：<input className="c-input is-small" type="text" required />
+                  キル：<input className="c-input is-small" type="text" pattern="^[0-9]+$" required />
                 </div>
                 <div className="u-dib">
-                  デス：<input className="c-input is-small" type="text" required />
+                  デス：<input className="c-input is-small" type="text" pattern="^[0-9]+$" required />
                 </div>
               </td>
             </tr>
@@ -125,10 +136,10 @@ export default class Form extends Component {
               <td>
                 <div className="u-dib u-mr10">サク =></div>
                 <div className="u-dib u-mr10">
-                  キル：<input className="c-input is-small" type="text" required />
+                  キル：<input className="c-input is-small" type="text" pattern="^[0-9]+$" required />
                 </div>
                 <div className="u-dib">
-                  デス：<input className="c-input is-small" type="text" required />
+                  デス：<input className="c-input is-small" type="text" pattern="^[0-9]+$" required />
                 </div>
               </td>
             </tr>
@@ -138,7 +149,7 @@ export default class Form extends Component {
                 {[0, 1].map(i => (
                   <div key={i} className="p-register__form__box__cell">
                     <select className="p-register__form__box__cell__select u-mr5">
-                      {buki.map((item, i) =>
+                      {bukis.map((item, i) =>
                         <option key={i} value={item.buki_id}>{item.buki_name}</option>
                       )}
                     </select>
@@ -157,7 +168,7 @@ export default class Form extends Component {
                 {[0, 1, 2, 3].map(i => (
                   <div key={i} className="p-register__form__box__cell">
                     <select className="p-register__form__box__cell__select u-mr5">
-                      {buki.map((item, i) =>
+                      {bukis.map((item, i) =>
                         <option key={i} value={item.buki_id}>{item.buki_name}</option>
                       )}
                     </select>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import page from './state/page';
-import password from './state/password';
-import stage from './state/stage';
-import buki from './state/buki';
+import pages from './state/pages';
+import passwords from './state/passwords';
+import stages from './state/stages';
+import rules from './state/rules';
+import bukis from './state/bukis';
+import results from './state/results';
 
 import App from './containers/App';
 
@@ -14,10 +16,12 @@ const app = new App({
   },
 
   initialState: {
-    page: {},
+    pages: {},
     register: {},
-    stage: [],
-    buki: []
+    stages: [],
+    rules: [],
+    bukis: [],
+    results: []
   },
 
   middlewares: [
@@ -32,16 +36,20 @@ const app = new App({
 });
 
 Promise.all([
-  password.fetch(),
-  stage.fetch(),
-  buki.fetch()
+  passwords.fetch(),
+  stages.fetch(),
+  rules.fetch(),
+  bukis.fetch(),
+  results.fetch()
 ])
 .then(res => {
   app.update(state => Object.assign({}, state, {
-    page: page,
+    pages: pages,
     register: res[0],
-    stage: res[1],
-    buki: res[2]
+    stages: res[1],
+    rules: res[2],
+    bukis: res[3],
+    results: res[4]
   }));
 })
 .catch(res => {

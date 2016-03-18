@@ -27,14 +27,13 @@ export default class BattleDate extends Component {
     const registerDate = document.getElementById('registerDate');
 
     registerDate.value = moment(day).format('YYYY/MM/DD');
-    registerDate.dataset.date = day;
     document.getElementById('registerCalendar').classList.remove('is-active');
   }
 
   render() {
     return (
       <div>
-        <input id="registerDate" className="c-input is-middle" type="text" readOnly data-date="" />
+        <input id="registerDate" className="c-input is-middle" type="text" readOnly />
         <div className="p-register__form__btn c-btn c-btn--default" onClick={this.handleBtnClick}>日付を選択</div>
         <div id="registerCalendar" className="p-register__form__dayPicker">
           <DayPicker initialMonth={new Date(this.current.year, this.current.month)} onDayClick={this.handleDateClick} />

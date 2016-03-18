@@ -10,13 +10,13 @@ export default class Menu extends Component {
   }
 
   render() {
-    const page = this.props.page;
+    const { pages } = this.props;
 
     return (
       <div className="menu">
         <ul className="menu__list">
-          {page.list.map((item, i) => (
-            <li key={i}><a className={`menu__link ${page.current === item.url ? 'is-active' : ''}`} href={`#${item.url}`}>{item.name}</a></li>
+          {pages.list.map((page, i) => (
+            <li key={i}><a className={`menu__link ${pages.current === page.url ? 'is-active' : ''}`} href={`#${page.url}`}>{page.name}</a></li>
           ))}
         </ul>
       </div>

@@ -79,7 +79,9 @@ server.register(inert, err => {
 const routings = [
   ...require('./app/api/v1/passwords')(connection),
   ...require('./app/api/v1/stages')(connection),
+  ...require('./app/api/v1/rules')(connection),
   ...require('./app/api/v1/bukis')(connection),
+  ...require('./app/api/v1/results')(connection),
   ...require('./app/routes')()
 ];
 

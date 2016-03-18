@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Flux } from 'flumpt';
 
-import registerResults from '../action/registerResults';
-
 import Menu from '../components/layout/Menu';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -14,14 +12,16 @@ import WinPer from '../components/WinPer';
 import Weapon from '../components/Weapon';
 import Register from '../components/Register';
 
+import results from '../state/results';
+
 export default class App extends Flux {
   subscribe() {
     this.on('changePage', page => {
       this.update(state => {
         return Object.assign({}, state, {
-          page: {
+          pages: {
             current: page.current,
-            list: state.page.list
+            list: state.pages.list
           }
         });
       });
@@ -40,13 +40,19 @@ export default class App extends Flux {
       });
     });
 
-    this.on('registerResults', registerResults);
+    this.on('registerResults', formData => {
+      results.post(formData)
+      .then(res => {
+        console.log(res);
+        this.update(state => state);
+      });
+    });
   }
 
   renderPage(state) {
-    const { page, stage, buki, register } = state;
+    const { pages, stages, rules, bukis, register } = state;
 
-    switch (page.current) {
+    switch (pages.current) {
       case '/':
         return <Index />;
         break;
@@ -68,7 +74,7 @@ export default class App extends Flux {
         break;
 
       case '/register/':
-        return <Register stage={stage} buki={buki} register={register} />;
+        return <Register stages={stages} rules={rules} bukis={bukis} register={register} />;
         break;
     }
   }
@@ -76,7 +82,7 @@ export default class App extends Flux {
   render(state: {}) {
     return (
       <div>
-        <Menu page={state.page} />
+        <Menu pages={state.pages} />
         <Header />
 
         <div className="main">

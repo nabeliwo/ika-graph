@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const cookieValue = getCookie('password');
-const password = {
+const passwords = {
   fetch: () => {
     return new Promise((resolve, reject) => {
       axios({
@@ -46,4 +46,4 @@ function getCookie(name) {
   return result;
 }
 
-export default password;
+export default passwords;

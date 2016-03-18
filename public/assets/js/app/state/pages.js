@@ -1,4 +1,4 @@
-const page =  {
+const pages =  {
   current: location.hash.substr(1) || '/',
   list: [
     {
@@ -28,4 +28,4 @@ const page =  {
   ]
 };
 
-export default page;
+export default pages;
