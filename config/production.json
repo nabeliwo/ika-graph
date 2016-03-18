@@ -1,10 +1,10 @@
 {
-  "host": "production",
+  "host": "localhost",
   "db": {
-    "host": "localhost",
-    "user": "root",
-    "pass": "HiroNiko2012",
-    "db": "ika-graph"
+    "host": "us-cdbr-iron-east-03.cleardb.net",
+    "user": "b774fdb8c0cd7e",
+    "pass": "f65ab17d",
+    "db": "heroku_cb38de725f2463d"
   },
   "register": {
     "pass": "HiroNiko2012"
