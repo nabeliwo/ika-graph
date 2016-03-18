@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "0.0.0.0",
   "db": {
     "host": "us-cdbr-iron-east-03.cleardb.net",
     "user": "b774fdb8c0cd7e",
