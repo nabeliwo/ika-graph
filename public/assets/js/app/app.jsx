@@ -7,6 +7,7 @@ import stages from './state/stages';
 import rules from './state/rules';
 import bukis from './state/bukis';
 import results from './state/results';
+import bukiOthers from './state/bukiOthers';
 
 import App from './containers/App';
 
@@ -22,6 +23,7 @@ const app = new App({
     rules: [],
     bukis: [],
     results: [],
+    bukiOthers: [],
     request: {
       sending: false,
       status: null
@@ -44,7 +46,8 @@ Promise.all([
   stages.fetch(),
   rules.fetch(),
   bukis.fetch(),
-  results.fetch()
+  results.fetch(),
+  bukiOthers.fetch()
 ])
 .then(res => {
   app.update(state => Object.assign({}, state, {
@@ -52,7 +55,8 @@ Promise.all([
     stages: res[1],
     rules: res[2],
     bukis: res[3],
-    results: res[4]
+    results: res[4],
+    bukiOthers: res[5]
   }));
 })
 .catch(res => {

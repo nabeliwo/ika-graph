@@ -81,7 +81,7 @@ export default class App extends Flux {
   }
 
   renderPage(state) {
-    const { pages, results, stages, rules, bukis, register, request } = state;
+    const { pages, results, stages, rules, bukis, register, request, bukiOthers } = state;
 
     switch (pages.current) {
       case '/':
@@ -93,15 +93,15 @@ export default class App extends Flux {
         break;
 
       case '/kill_ratio/':
-        return <KillRatio killRatios={results.map(result => result.killRatios)} />;
+        return <KillRatio results={results} stages={stages} rules={rules} />;
         break;
 
       case '/win_per/':
-        return <WinPer />;
+        return <WinPer results={results} stages={stages} rules={rules} />;
         break;
 
       case '/weapon/':
-        return <Weapon />;
+        return <Weapon results={results} bukis={bukis} bukiOthers={bukiOthers} />;
         break;
 
       case '/register/':

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/nabeliwo/ika-graph#readme",
   "dependencies": {
     "axios": "^0.9.1",
+    "chart.js": "^1.0.2",
     "config": "^1.19.0",
     "flumpt": "^0.1.4",
     "handlebars": "^4.0.5",

@@ -1,0 +1,51 @@
+/*-------------------------------------//
+//  WinPer
+//-------------------------------------*/
+
+.p-winper {
+    min-width: 950px;
+    padding: 0 20px;
+}
+.p-winper__canvas {
+    text-align: center;
+
+    & > canvas {
+        display: inline-block;
+        width: 500px;
+        height: 300px;
+    }
+
+    &.is-table > canvas {
+        width: 1200px;
+        height: 500px;
+    }
+}
+.p-winper__canvas__txt {
+    margin-top: 10px;
+    color: $error-color;
+    font-weight: bold;
+    font-size: 26px;
+}
+.p-winper__table {
+    width: 100%;
+    border: 1px solid #DEDEDE;
+
+    & > tbody > tr {
+        &:not(:first-child) { border-top: 1px solid #DEDEDE; }
+
+        & > th {
+            padding: 10px;
+            background-color: $base-site-color;
+            color: #FFF;
+            font-family: 'ikamodoki';
+            font-weight: bold;
+            font-size: $font-size-xl;
+            vertical-align: middle;
+        }
+
+        & > td {
+            padding: 10px;
+            border-left: 1px solid #DEDEDE;
+        }
+    }
+}

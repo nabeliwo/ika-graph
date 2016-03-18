@@ -1,0 +1,74 @@
+/*-------------------------------------//
+//  KillRatio
+//-------------------------------------*/
+
+.p-killRatio {
+    min-width: 950px;
+    padding: 0 20px;
+}
+.p-killRatio__color {
+    display: inline-block;
+    margin: 0 10px;
+
+    &:after {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        border-radius: 3px;
+        vertical-align: -3px;
+        content: "";
+    }
+
+    &.is-kill:after { background-color: #AAF2FB; }
+    &.is-death:after { background-color: #ffb6b9; }
+}
+.p-killRatio__canvas {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+
+    & > canvas {
+        width: 250px;
+        height: 250px;
+    }
+
+    &.is-small > canvas {
+        width: 100px;
+        height: 100px;
+    }
+    &.is-brNone br { display: none; }
+}
+.p-killRatio__canvas__txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+}
+.is-small .p-killRatio__canvas__txt { font-size: 20px; }
+.p-killRatio__table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #DEDEDE;
+
+    & th {
+        padding: 10px;
+        background-color: $base-site-color;
+        color: #FFF;
+        font-family: 'ikamodoki';
+        font-weight: bold;
+        font-size: $font-size-xl;
+        vertical-align: middle;
+    }
+
+    & > thead > tr > th:not(:first-child) { border-left: 1px solid #DEDEDE; }
+    & > tbody > tr {
+        border-top: 1px solid #DEDEDE;
+
+        & > td {
+            padding: 10px;
+
+            &:not(:first-child) { border-left: 1px solid #DEDEDE; }
+        }
+    }
+}

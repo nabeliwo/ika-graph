@@ -14,7 +14,7 @@ server.connection({
   host: config.get('host'), // get configfile
   port: normalizePort(process.env.PORT || '3000')
 });
-
+console.log(config.get('host'));
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -82,6 +82,7 @@ const routings = [
   ...require('./app/api/v1/rules')(connection),
   ...require('./app/api/v1/bukis')(connection),
   ...require('./app/api/v1/results')(connection),
+  ...require('./app/api/v1/bukiOthers')(connection),
   ...require('./app/routes')()
 ];
 

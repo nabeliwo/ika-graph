@@ -43,6 +43,9 @@
 @import "./object/project/index";
 @import "./object/project/register";
 @import "./object/project/result";
+@import "./object/project/killRatio";
+@import "./object/project/winper";
+@import "./object/project/weapon";
 
 
 /*----------------------------------------------

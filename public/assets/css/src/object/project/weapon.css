@@ -1,0 +1,52 @@
+/*-------------------------------------//
+//  Weapon
+//-------------------------------------*/
+
+.p-weapon__cloud {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #0D2734;
+    text-align: center;
+}
+.p-weapon__cloud__title {
+    margin-bottom: 30px;
+    color: #FFF;
+    font-size: 32px;
+}
+.p-weapon__cloud__txt {
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.p-weapon__inner {
+    padding: 0 20px;
+}
+.p-weapon__table {
+    width: 100%;
+    border: 1px solid #DEDEDE;
+    background-color: #EEE;
+    font-size: $font-size-xl;
+
+    & th {
+        padding: 10px;
+        background-color: $base-site-color;
+        color: #FFF;
+    }
+
+    & > thead > tr > th:not(:first-child) { border-left: 1px solid #DEDEDE; }
+    & > tbody > tr {
+        border-top: 1px solid #DEDEDE;
+
+        & > td {
+            padding: 10px;
+
+            &:not(:first-child) { border-left: 1px solid #DEDEDE; }
+        }
+    }
+}
+.p-weapon__table__thumb {
+    display: inline-block;
+    width: 100px;
+    margin-right: 20px;
+}
